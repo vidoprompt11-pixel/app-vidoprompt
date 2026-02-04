@@ -10,27 +10,15 @@ function App() {
 
   return (
     <Routes>
-      {/* ROOT */}
-      <Route
-        path="/"
-        element={
-          token ? (
-            <Navigate to="/dashboard" replace />
-          ) : (
-            <Navigate to="/login" replace />
-          )
-        }
-      />
-
       {/* Login */}
       <Route
         path="/login"
-        element={token ? <Navigate to="/dashboard" replace /> : <Login />}
+        element={token ? <Navigate to="/" /> : <Login />}
       />
 
       {/* Dashboard (Protected) */}
       <Route
-        path="/dashboard"
+        path="/"
         element={
           <ProtectedRoute>
             <Dashboard />
@@ -39,7 +27,7 @@ function App() {
       />
 
       {/* Fallback */}
-      <Route path="*" element={<Navigate to="/" replace />} />
+      <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
 }
