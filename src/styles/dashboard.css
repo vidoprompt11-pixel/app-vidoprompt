@@ -1,0 +1,110 @@
+.dash-box {
+  max-width: 900px;
+  margin: auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+}
+
+.dash-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* PLATFORMS */
+.platforms {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.platforms button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #e5e7eb;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.platforms button.active {
+  background: #2563eb;
+  color: white;
+}
+
+/* SUB CATEGORIES */
+.subcats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.subcat {
+  padding: 14px;
+  background: #f3f4f6;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.subcat.active {
+  background: #1d4ed8;
+  color: white;
+}
+
+/* FORM */
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+}
+
+textarea {
+  min-height: 120px;
+}
+
+/* TAGS */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.tag {
+  padding: 6px 14px;
+  background: #e5e7eb;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.tag.active {
+  background: #2563eb;
+  color: white;
+}
+
+/* UPLOAD */
+.upload-btn {
+  width: 100%;
+  padding: 14px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .platforms {
+    flex-direction: column;
+  }
+}
