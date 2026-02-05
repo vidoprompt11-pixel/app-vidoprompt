@@ -64,6 +64,24 @@ export default function Dashboard() {
     });
   };
 
+  const [customTag, setCustomTag] = useState("");
+
+
+  const addCustomTag = () => {
+    const tag = customTag.trim().toLowerCase();
+
+    if (!tag) return;
+    if (form.tags.includes(tag)) return;
+
+    setForm(prev => ({
+      ...prev,
+      tags: [...prev.tags, tag],
+    }));
+
+    setCustomTag("");
+  };
+
+
   const toggleTag = tag => {
     setForm(prev => ({
       ...prev,
@@ -183,18 +201,46 @@ export default function Dashboard() {
             />
 
             {/* TAGS */}
+            {/* TAGS */}
             <div className="tags">
+
+              {/* DEFAULT TAGS */}
               {TAGS.map(tag => (
                 <span
                   key={tag}
-                  className={`tag ${form.tags.includes(tag) ? "active" : ""
-                    }`}
+                  className={`tag ${form.tags.includes(tag) ? "active" : ""}`}
                   onClick={() => toggleTag(tag)}
                 >
                   #{tag}
                 </span>
               ))}
+
+              {/* SELECTED CUSTOM TAGS */}
+              {form.tags
+                .filter(tag => !TAGS.includes(tag))
+                .map(tag => (
+                  <span
+                    key={tag}
+                    className="tag active"
+                    onClick={() => toggleTag(tag)}
+                  >
+                    #{tag}
+                  </span>
+                ))}
             </div>
+
+            {/* ADD CUSTOM TAG */}
+            <div className="custom-tag">
+              <input
+                type="text"
+                placeholder="Add custom tag"
+                value={customTag}
+                onChange={e => setCustomTag(e.target.value)}
+                onKeyDown={e => e.key === "Enter" && addCustomTag()}
+              />
+              <button onClick={addCustomTag}>Add</button>
+            </div>
+
 
             <input
               type="number"
