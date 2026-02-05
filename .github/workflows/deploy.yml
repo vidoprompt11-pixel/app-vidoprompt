@@ -3,7 +3,7 @@ name: Deploy React Project
 on:
   push:
     branches:
-      - main  # જો તમારી બ્રાન્ચનું નામ master હોય તો અહીં master લખવું
+      - main  
 
 jobs:
   build-and-deploy:
