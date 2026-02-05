@@ -1,0 +1,30 @@
+name: Deploy React Project
+
+on:
+  push:
+    branches:
+      - main  # જો તમારી બ્રાન્ચનું નામ master હોય તો અહીં master લખવું
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Project
+        run: npm run build
+
+      - name: Sync Files via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          # નીચેની લાઈન ખાસ ધ્યાનથી જુઓ: 
+          # જો તમે Vite વાપરતા હોવ તો 'dist' લખો, અને જો Create React App હોય તો 'build' લખો.
+          local-dir: ./build/ 
+          server-dir: /public_html/
