@@ -9,38 +9,238 @@ const PLATFORMS = ["instagram", "youtube", "tiktok"];
 
 const SUB_CATEGORIES = {
   instagram: [
-    "Trending Viral",
-    "Reels Growth",
+    "Trending Reels",
+    "Entertainment Reels",
+    "Educational Reels",
+    "Promotional Reels",
     "AI Reels",
-    "Business Content",
-    "Faceless Reels",
   ],
   youtube: [
-    "YouTube Shorts",
-    "Long Form",
-    "Educational",
-    "Automation",
-    "Cash Cow",
+    "Skill Builder",
+    "Smart Systems",
+    "Long Play",
+    "Youtube Short",
+    "AI Tips",
   ],
   tiktok: [
-    "TikTok Viral",
-    "For You Page",
-    "Trending Sounds",
-    "Creators Growth",
+    "Vibes",
+    "Trends",
+    "Sound Picks",
+    "Growth",
+    "Explore",
   ],
 };
 
-const TAGS = [
-  "viral",
-  "trending",
-  "ai",
-  "growth",
-  "marketing",
-  "reels",
-  "shorts",
-  "automation",
-  "faceless",
-];
+const PLATFORM_TAGS = {
+  instagram: [
+    "trendingreels",
+    "trendingreels",
+    "reelsinstagram",
+    "viralreels",
+    "explorepage",
+    "instareels",
+    "reelitfeelit",
+    "trendingsound",
+    "trendingnow",
+    "reelsindia",
+    "reelsdaily",
+    "explore#trendingreels",
+    "reelsinstagram",
+    "viralreels",
+    "explorepage",
+    "instareels",
+    "reelitfeelit",
+    "trendingsound",
+    "trendingnow",
+    "reelsindia",
+    "reelsdaily",
+    "explore",
+    "entertainment",
+    "funreels",
+    "funnyvideos",
+    "relatable",
+    "entertainmentreels",
+    "instafun",
+    "reelsentertainment",
+    "laugh",
+    "viralcontent",
+    "dailyreels",
+    "reelslover",
+    "funcontent",
+    "educationalreels",
+    "learnoninstagram",
+    "knowledge",
+    "education",
+    "learning",
+    "informative",
+    "tipsandtricks",
+    "educationalcontent",
+    "instalearning",
+    "reelseducation",
+    "learnsomethingnew",
+    "dailyknowledge",
+    "valuecontent",
+    "promotion",
+    "promotionalreel",
+    "businessreels",
+    "brandpromotion",
+    "marketingreels",
+    "digitalmarketing",
+    "smallbusiness",
+    "businesscontent",
+    "instabusiness",
+    "sellonline",
+    "productreels",
+    "servicebusiness",
+    "onlinemarketing",
+    "aivideos",
+    "aireels",
+    "aicontent",
+    "aitools",
+    "artificialintelligence",
+    "technology",
+    "futuretech",
+    "aiart",
+    "aiedits",
+    "digitalcontent",
+    "techreels",
+    "smartcontent",
+    "automation",
+  ],
+
+  youtube: [
+    "skill builder",
+    "learn new skills",
+    "skill development",
+    "online learning",
+    "self improvement",
+    "learn skills online",
+    "beginner skills",
+    "professional skills",
+    "career growth",
+    "skill upgrade",
+    "learning videos",
+    "educational youtube",
+    "how to learn",
+    "knowledge videos",
+
+    "smart systems",
+    "automation setup",
+    "workflow automation",
+    "digital systems",
+    "business automation",
+    "online systems",
+    "smart tools",
+    "productivity systems",
+    "system building",
+    "automate work",
+    "tech systems",
+    "automation tools",
+
+    "long form content",
+    "full length video",
+    "in depth video",
+    "detailed explanation",
+    "long youtube video",
+    "complete guide",
+    "step by step tutorial",
+    "watch time content",
+    "deep dive video",
+    "youtube long play",
+
+    "youtube shorts",
+    "short videos",
+    "yt shorts",
+    "short form content",
+    "viral shorts",
+    "trending shorts",
+    "quick videos",
+    "vertical video",
+    "short video clips",
+    "youtube short video",
+
+    "ai tips",
+    "artificial intelligence tips",
+    "ai tools",
+    "chatgpt tips",
+    "ai productivity",
+    "ai automation",
+    "ai for beginners",
+    "ai technology",
+    "ai hacks",
+    "ai tricks",
+    "future technology",
+
+    "youtube",
+    "youtube video",
+    "content creator",
+    "online video",
+    "learn online",
+    "digital content",
+    "video tutorial",
+  ],
+
+  tiktok: [
+    "vibes",
+    "goodvibes",
+    "vibey",
+    "vibecheck",
+    "vibez",
+    "positivevibes",
+    "feelgood",
+    "aesthetic",
+    "dailyvibes",
+    "tiktokvibes",
+
+    "trending",
+    "trend",
+    "trendingsound",
+    "trendingnow",
+    "tiktoktrend",
+    "viraltrend",
+    "hottrend",
+    "latesttrend",
+    "trendalert",
+    "trendvideo",
+
+    "sounds",
+    "trendingaudio",
+    "viralsound",
+    "soundcheck",
+    "audiotrend",
+    "musictrend",
+    "soundtok",
+    "tiktoksound",
+    "soundreels",
+
+    "growth",
+    "creatorsupport",
+    "creatorcommunity",
+    "contentcreator",
+    "growyouraccount",
+    "creatorlife",
+    "socialmediagrowth",
+    "tiktokgrowth",
+    "newcreator",
+
+    "explore",
+    "explorepage",
+    "discover",
+    "foryou",
+    "foryoupage",
+    "fyp",
+    "foryoutiktok",
+    "tiktokexplore",
+    "discoverpage",
+
+    "tiktok",
+    "viral",
+    "video",
+    "shortvideo",
+    "dailycontent",
+  ],
+};
+
 
 export default function Dashboard() {
   const [form, setForm] = useState({
@@ -201,23 +401,20 @@ export default function Dashboard() {
             />
 
             {/* TAGS */}
-            {/* TAGS */}
             <div className="tags">
-
-              {/* DEFAULT TAGS */}
-              {TAGS.map(tag => (
+              {PLATFORM_TAGS[form.platform]?.map(tag => (
                 <span
                   key={tag}
                   className={`tag ${form.tags.includes(tag) ? "active" : ""}`}
                   onClick={() => toggleTag(tag)}
                 >
-                  #{tag}
+                  #{tag.replace(/\s+/g, "")}
                 </span>
               ))}
 
-              {/* SELECTED CUSTOM TAGS */}
+              {/* CUSTOM TAGS */}
               {form.tags
-                .filter(tag => !TAGS.includes(tag))
+                .filter(tag => !PLATFORM_TAGS[form.platform]?.includes(tag))
                 .map(tag => (
                   <span
                     key={tag}
@@ -228,6 +425,7 @@ export default function Dashboard() {
                   </span>
                 ))}
             </div>
+
 
             {/* ADD CUSTOM TAG */}
             <div className="custom-tag">
