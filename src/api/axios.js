@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://vidoprompt-backend.vercel.app/api",
+  baseURL: "https://api.vidoprompt.com/api",
 });
 
 export default api;
