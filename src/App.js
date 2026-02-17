@@ -4,6 +4,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import ProtectedRoute from "./auth/ProtectedRoute";
+import PlatformButtons from "./pages/PlatformButtons";
 
 function App() {
   const token = localStorage.getItem("token");
@@ -28,6 +29,8 @@ function App() {
 
       {/* Fallback */}
       <Route path="*" element={<Navigate to="/" />} />
+      <Route path="/platform-buttons" element={<PlatformButtons />} />
+
     </Routes>
   );
 }
