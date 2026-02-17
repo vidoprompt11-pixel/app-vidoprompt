@@ -1,7 +1,10 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://api.vidoprompt.com/api",
+  baseURL:
+    process.env.NODE_ENV === "production"
+      ? "https://api.vidoprompt.com/api"
+      : "http://localhost:5000/api",
 });
 
 export default api;

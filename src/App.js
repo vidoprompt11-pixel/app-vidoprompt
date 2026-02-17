@@ -28,8 +28,17 @@ function App() {
       />
 
       {/* Fallback */}
+      <Route
+        path="/platform-buttons"
+        element={
+          <ProtectedRoute>
+            <PlatformButtons />
+          </ProtectedRoute>
+        }
+      />
+
       <Route path="*" element={<Navigate to="/" />} />
-      <Route path="/platform-buttons" element={<PlatformButtons />} />
+
 
     </Routes>
   );
